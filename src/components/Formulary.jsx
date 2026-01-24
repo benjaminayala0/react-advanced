@@ -2,19 +2,26 @@ import React, { useState } from 'react'
 
 const MyFormulary = () => {
 
+    const imputOn = (event) => {
+      event.stopPropagation();
+        console.log('input on', event.type);
+    }
+
     const OnforEvent = (event) => {
+      event.stopPropagation();
         console.log('event on', event.type);
     }
     
   return (
     <div>
-      <form autoComplete="off">
+      <form autoComplete="off" onClick={OnforEvent}>
         <div>
           <label htmlFor="username" onMouseMove={OnforEvent} >User:</label>
           <input
             type="text"
             id="username"
             name="username"
+            onClick={imputOn}
           />   
         </div>
         <div>
@@ -27,7 +34,7 @@ const MyFormulary = () => {
           />
         </div>
         <div>
-          <label htmlFor="password" onclick={OnforEvent}>Password:</label>
+          <label htmlFor="password" onClick={OnforEvent}>Password:</label>
           <input
             type="password"
             id="password"
