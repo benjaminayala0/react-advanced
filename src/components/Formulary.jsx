@@ -2,6 +2,12 @@ import React, { useState } from 'react'
 
 const MyFormulary = () => {
 
+  const [formData, setFormData] = useState({
+    username: '',
+    email: 'formart@gmail.com',
+    password: ''
+  });
+
     const imputOn = (event) => {
       event.stopPropagation();
         console.log('input on', event.type);
@@ -21,7 +27,7 @@ const MyFormulary = () => {
             type="text"
             id="username"
             name="username"
-            onClick={imputOn}
+            value={formData.username}
           />   
         </div>
         <div>
@@ -30,7 +36,7 @@ const MyFormulary = () => {
             type="email"
             id="email"
             name="email"
-            onChange={OnforEvent}
+            value={formData.email}
           />
         </div>
         <div>
@@ -39,6 +45,7 @@ const MyFormulary = () => {
             type="password"
             id="password"
             name="password"
+            value={formData.password}
           />
         </div>
         <button type="submit">Send</button>
