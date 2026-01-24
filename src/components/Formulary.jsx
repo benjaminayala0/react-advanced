@@ -8,26 +8,30 @@ const MyFormulary = () => {
     password: ''
   });
 
-    const imputOn = (event) => {
-      event.stopPropagation();
-        console.log('input on', event.type);
-    }
+  const processChange = (event) => {
+    const {name,value} = event.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  }
 
-    const OnforEvent = (event) => {
-      event.stopPropagation();
-        console.log('event on', event.type);
-    }
-    
+  const processSubmit = (event) => {
+    event.preventDefault();
+    console.log('Form submitted:', formData);
+  };
+   
   return (
     <div>
-      <form autoComplete="off" onClick={OnforEvent}>
+      <form autoComplete="off" onSubmit={processSubmit}>
         <div>
-          <label htmlFor="username" onMouseMove={OnforEvent} >User:</label>
+          <label htmlFor="username">User:</label>
           <input
             type="text"
             id="username"
             name="username"
             value={formData.username}
+            onChange={processChange}
           />   
         </div>
         <div>
@@ -37,15 +41,17 @@ const MyFormulary = () => {
             id="email"
             name="email"
             value={formData.email}
+            onChange={processChange}
           />
         </div>
         <div>
-          <label htmlFor="password" onClick={OnforEvent}>Password:</label>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
             name="password"
             value={formData.password}
+            onChange={processChange}
           />
         </div>
         <button type="submit">Send</button>
