@@ -1,11 +1,13 @@
 import React from 'react';
+import ProductItem from './productItem.jsx';
 
 const Catalog = () => {
 
     const products = [
-        // { id: 1, name: 'Product A', price: 29.99 },
-        // { id: 2, name: 'Product B', price: 49.99 },
-        // { id: 3, name: 'Product C', price: 19.99 },
+        { id: 1, name: 'Product A', price: 29.99 },
+        { id: 2, name: 'Product B', price: 49.99 },
+        { id: 3, name: 'Product C', price: 19.99 },
+        { id: 4, name: 'Product D', price: 59.99 },
     ];
     return (
         <>
@@ -14,14 +16,13 @@ const Catalog = () => {
             {products.length === 0 ? (
                 <p>No products available.</p>
             ) : (
-                <ul>
+                <div className='Products'>
                     {products.map
                         ((product) => (
-                        <li key={product.id}> {product.name} - {product.price}
-                    </li>
+                        <ProductItem key={product.id} product={product} />  
                 )
                 )}
-            </ul>
+            </div>
             )}
         </>
     );
