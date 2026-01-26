@@ -15,7 +15,11 @@ const Catalog = ({ }) => {
             {books.length === 0 ? (
                 <p>No books available.</p>
             ) : (
-                <div className='Books'>
+                <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    backgroundColor:'#958787',
+                }}>
                     {books.map((book) => (
                         <Book key={book.id} book={book} />  
                     ))}
