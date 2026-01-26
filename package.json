@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
-    "preact": "^10.27.2"
+    "preact": "^10.27.2",
+    "style-components": "^0.1.0",
+    "styled-components": "^6.3.8"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.2",
