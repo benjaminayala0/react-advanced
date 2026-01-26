@@ -1,28 +1,25 @@
 import React from 'react';
-import ProductItem from './productItem.jsx';
+import Book from './book/book.jsx';
 
-const Catalog = () => {
-
-    const products = [
-        { id: 1, name: 'Product A', price: 29.99 },
-        { id: 2, name: 'Product B', price: 49.99 },
-        { id: 3, name: 'Product C', price: 19.99 },
-        { id: 4, name: 'Product D', price: 59.99 },
+const Catalog = ({ }) => {
+    const books = [
+        { id: 1, title: 'Book A', publick: 1986 },
+        { id: 2, title: 'Book B', publick: 1990 },
+        { id: 3, title: 'Book C', publick: 2005 },
+        { id: 4, title: 'Book D', publick: 2010 },
     ];
     return (
         <>
-            <h2>Product Catalog</h2>
+            <h2>Books Catalog</h2>
 
-            {products.length === 0 ? (
-                <p>No products available.</p>
+            {books.length === 0 ? (
+                <p>No books available.</p>
             ) : (
-                <div className='Products'>
-                    {products.map
-                        ((product) => (
-                        <ProductItem key={product.id} product={product} />  
-                )
-                )}
-            </div>
+                <div className='Books'>
+                    {books.map((book) => (
+                        <Book key={book.id} book={book} />  
+                    ))}
+                </div>
             )}
         </>
     );
