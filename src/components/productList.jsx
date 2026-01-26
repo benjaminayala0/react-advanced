@@ -8,7 +8,7 @@ function productList() {
     const manageClick = (event) => {
         const id = event.id;
         setData(prevData => prevData.map(item =>
-            item.id === id ? { ...item, name: 'selected' } : item
+            item.id === id ? { ...item, status: 'selected' } : item
         ));
     }
 
