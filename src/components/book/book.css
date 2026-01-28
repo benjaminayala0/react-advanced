@@ -30,4 +30,7 @@
   .seleccionado.card{
     background-color: #b8b7b7;
   }
+  .highlighted.card{
+    background-color: #ffff99;
+  }
  
