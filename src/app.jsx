@@ -4,6 +4,7 @@ import CartList from './components/cartList.jsx';
 import { DataProvider } from './components/DataContext.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Catalog from './components/catalog.jsx';
 
 function MainComponent(){ 
 
@@ -17,11 +18,10 @@ function MainComponent(){
    }, []);
 
    return (
-      <div className='row'>
-        <DataProvider>
-          <ProductList />
-          <CartList />
-         </DataProvider>
+      <div>
+       
+          <Catalog books={data} />
+        
       </div>
    )
 }
