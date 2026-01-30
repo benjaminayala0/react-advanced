@@ -7,6 +7,7 @@ import './App.css';
 import Catalog from './components/catalog.jsx';
 import {BrowserRouter, Routes, Route,NavLink} from 'react-router-dom';
 import Home from './components/home.jsx';
+import Product from './components/product.jsx';
 
 function MainComponent(){ 
 
@@ -35,13 +36,14 @@ function MainComponent(){
             Catalog</NavLink>
             </li>
          </ul>
-         
+
       </nav>
 
       <div className='container'>
       <Routes>  
         <Route path="/home" element={<Home/>} />
          <Route path="/catalog" element={<Catalog books={data} />} />
+         <Route path="/product/:nameParam" element={<Product/>} />
       </Routes>
       </div>
       </BrowserRouter>
