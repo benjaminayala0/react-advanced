@@ -5,6 +5,9 @@ import { DataProvider } from './components/DataContext.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Catalog from './components/catalog.jsx';
+import {BrowserRouter, Routes, Route,NavLink} from 'react-router-dom';
+import Home from './components/home.jsx';
+import Product from './components/product.jsx';
 
 function MainComponent(){ 
 
@@ -18,11 +21,32 @@ function MainComponent(){
    }, []);
 
    return (
-      <div>
-       
-          <Catalog books={data} />
-        
+      <BrowserRouter>
+
+      <nav className='navbar navbar-expand navbar-light bg-light'>
+         <ul className='navbar-nav '>
+            <li className='nav-item'>
+         <NavLink to="/home" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+         >
+            Home</NavLink> 
+            </li>
+
+            <li className='nav-item'>
+         <NavLink to="/catalog" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+            Catalog</NavLink>
+            </li>
+         </ul>
+
+      </nav>
+
+      <div className='container'>
+      <Routes>  
+        <Route path="/home" element={<Home/>} />
+         <Route path="/catalog" element={<Catalog books={data} />} />
+         <Route path="/product/:nameParam" element={<Product/>} />
+      </Routes>
       </div>
+      </BrowserRouter>
    )
 }
 
